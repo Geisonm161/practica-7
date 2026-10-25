@@ -1,0 +1,11 @@
+SET NAMES utf8mb4;
+
+CREATE TABLE IF NOT EXISTS greetings (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    message VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+INSERT INTO greetings (message)
+SELECT 'Conexión exitosa a MySQL.'
+WHERE NOT EXISTS (SELECT 1 FROM greetings);
